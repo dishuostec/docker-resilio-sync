@@ -1,6 +1,4 @@
-#Resilio Sync based on Alpine
-
-
+# Resilio Sync based on Alpine
 
 # Usage
 
