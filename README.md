@@ -14,8 +14,8 @@ mkdir -p $DATA_FOLDER
 
 docker run -d --name ResilioSync \
   -p 127.0.0.1:$WEBUI_PORT:8888 -p 55555 \
-  -e RSLSYNC_USER_NAME=username \
-  -e RSLSYNC_USER_PWD=password \
+  -e RSLSYNC_USER_NAME=$RSLSYNC_USER_NAME \
+  -e RSLSYNC_USER_PWD=$RSLSYNC_USER_PWD \
   -v $STATE_FOLDER:/root/.sync \
   -v $DATA_FOLDER:/mnt/rslsync \
   --restart on-failure \
@@ -31,8 +31,8 @@ If you do not want to limit the access to the webui to localhost, run instead:
 ```shell
 docker run -d --name ResilioSync \
   -p $WEBUI_PORT:8888 -p 55555 \
-  -e RSLSYNC_USER_NAME=username \
-  -e RSLSYNC_USER_PWD=password \
+  -e RSLSYNC_USER_NAME=$RSLSYNC_USER_NAME \
+  -e RSLSYNC_USER_PWD=$RSLSYNC_USER_PWD \
   -v $STATE_FOLDER:/root/.sync \
   -v $DATA_FOLDER:/mnt/rslsync \
   --restart on-failure \
