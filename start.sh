@@ -1,6 +1,8 @@
 #!/bin/ash
-
-cat > /etc/rslsync.conf << EOT
+if [ -f /root/.sync/sync.user.conf ]; then
+    cp /root/.sync/sync.user.conf /etc/rslsync.conf;
+else
+    cat > /etc/rslsync.conf << EOT
 {
     "device_name": "My Sync Device",
     "listening_port" : 55555,
@@ -18,5 +20,6 @@ cat > /etc/rslsync.conf << EOT
     }
 }
 EOT
+fi
 
 rslsync --nodaemon --config /etc/rslsync.conf
